@@ -6,6 +6,13 @@ services:
             - "8000:80"
         depends_on:
             - db
+            - papercut
+    papercut:
+        image: jijiechen/papercut:latest
+        restart: always
+        ports:
+            - "25:25"
+            - "37408:37408"
     db:
         image: "mcr.microsoft.com/mssql/server"
         environment:
